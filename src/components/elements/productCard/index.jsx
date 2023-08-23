@@ -36,14 +36,25 @@ const ProductCard = (props) => {
         </div>
       </Link>
       {product.amountOnCart > 0 && window.location.pathname === '/my-cart' &&
-        <div className='p-2'>
-          <AmountCounter
-            product={product}
-            counter={counter}
-            incrementCounter={incrementCounter}
-            decrementCounter={decrementCounter}
-          />
-        </div>
+        <>
+          <div className='p-2 flex justify-between items-center'>
+            <h2 className='text-lg md:text-2xl font-semibold text-center'>Qty</h2>
+            <AmountCounter
+              product={product}
+              counter={counter}
+              incrementCounter={incrementCounter}
+              decrementCounter={decrementCounter}
+            />
+          </div>
+          <div className='p-2 flex justify-between items-center'>
+            <h2 className='text-lg md:text-2xl font-semibold text-center'>Total</h2>
+            <h2 className='text-lg md:text-2xl font-semibold text-center'>${product.amountOnCart * product.price}</h2>
+          </div>
+          <div className='p-2 flex flex-col gap-2'>
+            <button className='bg-red-700 text-white w-full p-2 text-md md:text-base font-medium'>Buy Now</button>
+            <button className='bg-black text-white w-full p-2 text-md md:text-base font-medium'>Remove From Cart</button>
+          </div>
+        </>
       }
     </div>
   )
