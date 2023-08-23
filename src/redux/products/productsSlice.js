@@ -11,7 +11,12 @@ const initialState = [
   { id: '8', name: 'Fancy Earphone', price: 40, stock: 5, amountOnCart: 0, category: 'electronics', imgUrl: '/img/electronics/fancy-earphone.jpg', texture: 'Plastic', weight: '1kg', size: '10cm x 10cm' },
   { id: '9', name: 'Black Monitor', price: 150, stock: 9, amountOnCart: 0, category: 'electronics', imgUrl: '/img/electronics/black-monitor.jpg', texture: 'Plastic', weight: '5kg', size: '30cm x 5cm' },
   { id: '10', name: 'Black Lamp', price: 40, stock: 4, amountOnCart: 0, category: 'lamps', imgUrl: '/img/lamps/black-lamp.jpg', texture: 'Plastic', weight: '4kg', size: '20cm x 20cm' },
-  { id: '11', name: 'White Lamp', price: 35, stock: 7, amountOnCart: 0, category: 'lamps', imgUrl: '/img/lamps/white-lamp.jpg', texture: 'Plastic', weight: '4kg', size: '20cm x 20cm' }
+  { id: '11', name: 'White Lamp', price: 35, stock: 7, amountOnCart: 0, category: 'lamps', imgUrl: '/img/lamps/white-lamp.jpg', texture: 'Plastic', weight: '4kg', size: '20cm x 20cm' },
+  { id: '11', name: 'Black Cap', price: 15, stock: 8, amountOnCart: 0, category: 'apparel', imgUrl: '/img/apparel/black-cap.jpg', texture: 'Cotton', weight: '1kg', size: '15cm x 15cm' },
+  { id: '11', name: 'Red Hoodie', price: 45, stock: 4, amountOnCart: 0, category: 'apparel', imgUrl: '/img/apparel/red-hoodie.jpg', texture: 'Cotton', weight: '1kg', size: '80cm x 50cm' },
+  { id: '11', name: 'Tote Bag', price: 37, stock: 7, amountOnCart: 0, category: 'apparel', imgUrl: '/img/apparel/tote-bag.jpg', texture: 'Denim', weight: '1kg', size: '50cm x 15cm' },
+  { id: '11', name: 'White Shoes', price: 38, stock: 2, amountOnCart: 0, category: 'apparel', imgUrl: '/img/apparel/white-shoes.jpg', texture: 'Cotton', weight: '1kg', size: '45cm x 20cm' },
+  { id: '11', name: 'Yellow Shirt', price: 62, stock: 5, amountOnCart: 0, category: 'apparel', imgUrl: '/img/apparel/yellow-shirt.jpg', texture: 'Cotton', weight: '1kg', size: '80cm x 50cm' },
 ];
 
 const productsSlice = createSlice({
