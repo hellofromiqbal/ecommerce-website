@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import AmountCounter from '../../fragments/amountCounter';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../../../redux/products/productsSlice';
 
 const ProductCard = (props) => {
   const { product } = props;
+
   return (
     <div className='border-2 hover:border-black transition delay-75'>
       <Link to={`/categories/${product.category}/${product.id}`} className='flex flex-col h-96 md:h-80 lg:h-96'>

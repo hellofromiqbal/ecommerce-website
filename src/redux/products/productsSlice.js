@@ -36,7 +36,7 @@ const productsSlice = createSlice({
       reducer: (state, action) => {
         state.map((product) => {
           if (product.id === action.payload.productId) {
-            if (product.amountOnCart += action.payload.amount > product.stock) {
+            if (product.amountOnCart + action.payload.amount > product.stock) {
               product.amountOnCart = product.stock;
             } else {
               product.amountOnCart += action.payload.amount;
