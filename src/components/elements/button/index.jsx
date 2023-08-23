@@ -7,13 +7,13 @@ const Button = (props) => {
     colorStyle = 'text-black hover:text-white',
     textStyle = 'text-sm md:text-base',
     fontStyle = 'font-semibold',
-    paddingStyle = 'p-3',
+    dimensionStyle = 'p-3 w-max',
     text,
     onClick = () => {}
   } = props;
   return (
     <button
-      className={`${paddingStyle} ${borderStyle} ${bgColorStyle} ${colorStyle} ${textStyle} ${fontStyle} transition delay-75`}
+      className={`${dimensionStyle} ${borderStyle} ${bgColorStyle} ${colorStyle} ${textStyle} ${fontStyle} transition delay-75`}
       onClick={onClick}
     >
       {text}

@@ -56,6 +56,7 @@ const DetailPage = () => {
           </div>
           <div className='grid grid-cols-2 md:flex-row gap-4'>
             <Button
+              dimensionStyle="p-3 w-full"
               text="ADD TO CART"
               onClick={handleAddToCart}
             />
@@ -63,6 +64,7 @@ const DetailPage = () => {
               borderStyle="border-2 border-transparent hover:border-red-700"
               bgColorStyle="bg-red-700 hover:bg-transparent"
               colorStyle="text-white hover:text-red-700"
+                dimensionStyle="p-3 w-full"
               text="BUY NOW"
               onClick={handleDecrementStock}
             />
