@@ -18,10 +18,7 @@ const ProductSection = (props) => {
         {products.map((item) => (
           <ProductCard
             key={item.id}
-            url={`/categories/${item.category}/${item.id}`}
-            imgUrl={item.imgUrl}
-            name={item.name}
-            price={item.price}
+            product={item}
           />
         ))}
       </ProductList>

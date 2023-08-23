@@ -1,7 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { selectAllCart } from '../../redux/cart/cartSlice';
-import ProductSection from '../home/ProductSection';
 import ProductList from '../../components/fragments/productList';
 import ProductCard from '../../components/elements/productCard';
 
@@ -13,10 +12,7 @@ const MyCartPage = () => {
         {myCart.map((product) => (
           <ProductCard
             key={product.id}
-            url={`/categories/${product.category}/${product.id}`}
-            imgUrl={product.imgUrl}
-            name={product.name}
-            price={product.price}
+            product={product}
           />
         ))}
       </ProductList>
