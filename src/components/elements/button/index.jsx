@@ -10,7 +10,7 @@ const Button = (props) => {
     dimensionStyle = 'p-3 w-max',
     text,
     onClick = () => {},
-    disabled=false
+    disabled = false
   } = props;
   return (
     <button
