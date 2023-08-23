@@ -20,7 +20,7 @@ const CategoriesPage = () => {
     <>
       <section className='flex flex-col gap-4 items-center'>
         <h2 className='text-lg md:text-2xl font-semibold'>{categoryNavTitle}</h2>
-        <ul className='flex gap-4'>
+        <ul className='flex gap-4 flex-wrap'>
           <li><Link to="/categories/all" className='border-2 px-2 py-1 hover:border-black transition delay-75'>All</Link></li>
           <li><Link to="/categories/furnitures" className='border-2 px-2 py-1 hover:border-black transition delay-75'>Furnitures</Link></li>
           <li><Link to="/categories/electronics" className='border-2 px-2 py-1 hover:border-black transition delay-75'>Electronics</Link></li>
