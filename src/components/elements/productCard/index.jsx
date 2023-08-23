@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import AmountCounter from '../../fragments/amountCounter';
 import { useDispatch } from 'react-redux';
 import { decrementAmountOnCart, incrementAmountOnCart } from '../../../redux/products/productsSlice';
+import Button from '../button';
 
 const ProductCard = (props) => {
   const { product } = props;
@@ -39,7 +40,7 @@ const ProductCard = (props) => {
       </Link>
       {product.amountOnCart > 0 && window.location.pathname === '/my-cart' &&
         <>
-          <div className='p-2 flex justify-between items-center'>
+          <div className='p-2 pt-0 flex justify-between items-center'>
           <p className='text-black text-opacity-80'>Quantity on cart</p>
             <AmountCounter
               product={product}
@@ -48,12 +49,19 @@ const ProductCard = (props) => {
               decrementCounter={decrementCounter}
             />
           </div>
-          <div className='p-2 flex justify-between items-center'>
+          <div className='p-2 pt-0 flex justify-between items-center'>
             <p className='text-black text-opacity-80'>Total price</p>
-            <h2 className='text-lg md:text-2xl font-semibold text-center'>${product.amountOnCart * product.price}</h2>
+            <h4 className='text-lg md:text-2xl font-semibold text-center'>${product.amountOnCart * product.price}</h4>
           </div>
-          <div className='p-2 flex flex-col gap-2'>
-            <button className='bg-red-700 text-white w-full p-2 text-md md:text-base font-medium'>Buy Now</button>
+          <div className='p-2 pt-0 flex flex-col gap-2'>
+            <Button
+              borderStyle="border-2 border-transparent hover:border-red-700"
+              bgColorStyle="bg-red-700 hover:bg-transparent"
+              colorStyle="text-white hover:text-red-700"
+              dimensionStyle="p-2 w-full"
+              text="BUY NOW"
+              onClick={() => {}}
+            />
           </div>
         </>
       }
