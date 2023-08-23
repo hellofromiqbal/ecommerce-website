@@ -5,13 +5,13 @@ const AmountCounter = (props) => {
   return (
     <div className='flex'>
       <button
-        className='px-4 py-2 border-2 border-black font-bold bg-black text-white'
+        className='px-2 py-0 border-2 border-black font-bold bg-black text-white'
         onClick={decrementCounter}
         disabled={counter === 1}
       >-</button>
-      <p className='px-4 py-2 border-y-2 border-black font-bold bg-white'>{counter}</p>
+      <p className='px-2 py-0 border-y-2 border-black font-bold bg-white'>{counter}</p>
       <button
-        className='px-4 py-2 border-2 border-black font-bold bg-black text-white'
+        className='px-2 py-0 border-2 border-black font-bold bg-black text-white'
         onClick={incrementCounter}
         disabled={counter === product.stock}
       >+</button>
