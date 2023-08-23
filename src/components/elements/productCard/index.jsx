@@ -1,14 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import AmountCounter from '../../fragments/amountCounter';
-import { useDispatch } from 'react-redux';
-import { addToCart } from '../../../redux/products/productsSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { addToCart, decrementAmountOnCart, incrementAmountOnCart, selectAllProducts } from '../../../redux/products/productsSlice';
 
 const ProductCard = (props) => {
   const { product } = props;
 
+  const dispatch = useDispatch();
+
+  const [counter, setCounter] = useState(product.amountOnCart);
+
+  const decrementCounter = () => {
+    setCounter((prev) => prev - 1);
+    dispatch(decrementAmountOnCart(product.id, counter));
+  };
+
+  const incrementCounter = () => {
+    setCounter((prev) => prev + 1);
+    dispatch(incrementAmountOnCart(product.id, counter));
+  };
+
   return (
     <div className='border-2 hover:border-black transition delay-75'>
+      {console.log(product)}
       <Link to={`/categories/${product.category}/${product.id}`} className='flex flex-col h-96 md:h-80 lg:h-96'>
         <div className={`basis-10/12 overflow-hidden`}>
           <img className='object-cover w-full h-full' src={product.imgUrl} alt={product.name} />
@@ -24,7 +39,9 @@ const ProductCard = (props) => {
         <div className='p-2'>
           <AmountCounter
             product={product}
-            counter={product.amountOnCart}
+            counter={counter}
+            incrementCounter={incrementCounter}
+            decrementCounter={decrementCounter}
           />
         </div>
       }

@@ -49,12 +49,40 @@ const productsSlice = createSlice({
           payload: { productId, amount }
         }
       }
+    },
+    incrementAmountOnCart: {
+      reducer: (state, action) => {
+        state.map((product) => {
+          if (product.id === action.payload.productId) {
+            product.amountOnCart += 1;
+          };
+        });
+      },
+      prepare: (productId, amount) => {
+        return {
+          payload: { productId, amount }
+        }
+      }
+    },
+    decrementAmountOnCart: {
+      reducer: (state, action) => {
+        state.map((product) => {
+          if (product.id === action.payload.productId) {
+            product.amountOnCart -= 1;
+          };
+        });
+      },
+      prepare: (productId, amount) => {
+        return {
+          payload: { productId, amount }
+        };
+      }
     }
   }
 });
 
 export const selectAllProducts = (state) => state.products;
 
-export const { decrementStock, addToCart } = productsSlice.actions;
+export const { decrementStock, addToCart, decrementAmountOnCart, incrementAmountOnCart } = productsSlice.actions;
 
 export default productsSlice.reducer;
