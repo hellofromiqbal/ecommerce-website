@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import AmountCounter from '../../fragments/amountCounter';
 import { useDispatch } from 'react-redux';
-import { decrementAmountOnCart, incrementAmountOnCart } from '../../../redux/products/productsSlice';
+import { decrementAmountOnCart, incrementAmountOnCart, removeProductFromCart } from '../../../redux/products/productsSlice';
 import Button from '../button';
 import { RxCross1 as IconRemove } from 'react-icons/rx';
 
@@ -23,6 +23,10 @@ const ProductCard = (props) => {
     dispatch(incrementAmountOnCart(product.id, counter));
   };
 
+  const removeProduct = () => {
+    dispatch(removeProductFromCart(product.id));
+  };
+
   return (
     <div className='border-2 hover:border-black transition delay-75 relative'>
       {window.location.pathname === '/my-cart' &&
@@ -32,7 +36,7 @@ const ProductCard = (props) => {
           colorStyle="text-white"
           dimensionStyle="p-2 w-max rounded-full absolute right-2 top-2 shadow-lg"
           text={IconRemove()}
-          onClick={() => {}}
+          onClick={removeProduct}
         />
       }
       <Link to={`/categories/${product.category}/${product.id}`} className='flex flex-col h-96 md:h-80 lg:h-96'>

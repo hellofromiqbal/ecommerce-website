@@ -85,12 +85,21 @@ const productsSlice = createSlice({
           payload: { productId, amount }
         };
       }
-    }
+    },
+    removeProductFromCart: {
+      reducer: (state, action) => {
+        state.map((product) => {
+          if (product.id === action.payload) {
+            product.amountOnCart = 0;
+          };
+        });
+      }
+    },
   }
 });
 
 export const selectAllProducts = (state) => state.products;
 
-export const { decrementStock, addToCart, decrementAmountOnCart, incrementAmountOnCart } = productsSlice.actions;
+export const { decrementStock, addToCart, decrementAmountOnCart, incrementAmountOnCart, removeProductFromCart } = productsSlice.actions;
 
 export default productsSlice.reducer;
