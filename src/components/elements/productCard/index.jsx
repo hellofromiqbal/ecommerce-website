@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import AmountCounter from '../../fragments/amountCounter';
 
 const ProductCard = (props) => {
   const { product } = props;
@@ -9,8 +10,16 @@ const ProductCard = (props) => {
         <img className='object-cover w-full h-full' src={product.imgUrl} alt={product.name} />
       </div>
       <div className='basis-2/12 flex flex-col p-2 justify-center'>
-        <h3 className='font-semibold'>{product.name}</h3>
-        <p className='text-black text-opacity-80'>${product.price}</p>
+        <div className='flex flex-col'>
+          <h3 className='font-semibold'>{product.name}</h3>
+          <p className='text-black text-opacity-80'>${product.price}</p>
+        </div>
+        {product.amountOnCart > 0 && window.location.pathname === '/my-cart' &&
+          <AmountCounter
+            product={product}
+            counter={product.amountOnCart}
+          />
+        }
       </div>
     </Link>
   )
