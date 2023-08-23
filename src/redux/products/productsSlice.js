@@ -17,6 +17,9 @@ const initialState = [
   { id: '14', name: 'Tote Bag', price: 37, stock: 7, amountOnCart: 0, category: 'apparel', imgUrl: '/img/apparel/tote-bag.jpg', texture: 'Denim', weight: '1kg', size: '50cm x 15cm' },
   { id: '15', name: 'White Shoes', price: 38, stock: 2, amountOnCart: 0, category: 'apparel', imgUrl: '/img/apparel/white-shoes.jpg', texture: 'Cotton', weight: '1kg', size: '45cm x 20cm' },
   { id: '16', name: 'Yellow Shirt', price: 62, stock: 5, amountOnCart: 0, category: 'apparel', imgUrl: '/img/apparel/yellow-shirt.jpg', texture: 'Cotton', weight: '1kg', size: '80cm x 50cm' },
+  { id: '17', name: 'Makeup Set', price: 50, stock: 8, amountOnCart: 0, category: 'beauty', imgUrl: '/img/beauty/makeup-set.jpg', texture: 'Plastic', weight: '1kg', size: '10cm x 10cm' },
+  { id: '18', name: 'Cosmetic Tube', price: 81, stock: 4, amountOnCart: 0, category: 'beauty', imgUrl: '/img/beauty/cosmetic-tube.jpg', texture: 'Plastic', weight: '1kg', size: '10cm x 5cm' },
+  { id: '19', name: 'Makeup Brush', price: 33, stock: 9, amountOnCart: 0, category: 'beauty', imgUrl: '/img/beauty/makeup-brush.jpg', texture: 'Plastic', weight: '1kg', size: '12cm x 5cm' },
 ];
 
 const productsSlice = createSlice({

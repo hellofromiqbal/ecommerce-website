@@ -25,6 +25,8 @@ const CategoriesPage = () => {
           <li><Link to="/categories/furnitures" className='border-2 px-2 py-1 hover:border-black transition delay-75'>Furnitures</Link></li>
           <li><Link to="/categories/electronics" className='border-2 px-2 py-1 hover:border-black transition delay-75'>Electronics</Link></li>
           <li><Link to="/categories/lamps" className='border-2 px-2 py-1 hover:border-black transition delay-75'>Lamps</Link></li>
+          <li><Link to="/categories/apparel" className='border-2 px-2 py-1 hover:border-black transition delay-75'>Apparel</Link></li>
+          <li><Link to="/categories/beauty" className='border-2 px-2 py-1 hover:border-black transition delay-75'>Beauty</Link></li>
         </ul>
       </section>
       {productSection}
