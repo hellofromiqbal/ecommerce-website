@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import AmountCounter from '../../fragments/amountCounter';
-import { useDispatch, useSelector } from 'react-redux';
-import { addToCart, decrementAmountOnCart, incrementAmountOnCart, selectAllProducts } from '../../../redux/products/productsSlice';
+import { useDispatch } from 'react-redux';
+import { decrementAmountOnCart, incrementAmountOnCart } from '../../../redux/products/productsSlice';
 
 const ProductCard = (props) => {
   const { product } = props;
