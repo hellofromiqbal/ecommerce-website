@@ -36,7 +36,11 @@ const productsSlice = createSlice({
       reducer: (state, action) => {
         state.map((product) => {
           if (product.id === action.payload.productId) {
-            product.amountOnCart += action.payload.amount;
+            if (product.amountOnCart += action.payload.amount > product.stock) {
+              product.amountOnCart = product.stock;
+            } else {
+              product.amountOnCart += action.payload.amount;
+            };
           };
         });
       },
