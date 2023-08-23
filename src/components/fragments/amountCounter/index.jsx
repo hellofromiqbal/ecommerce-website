@@ -1,20 +1,31 @@
 import React from 'react';
+import Button from '../../elements/button';
 
 const AmountCounter = (props) => {
   const { product, counter, decrementCounter, incrementCounter } = props;
   return (
     <div className='flex'>
-      <button
-        className='px-2 py-0 border-2 border-black font-bold bg-black text-white'
+      <Button
+        borderStyle="border-2 border-transparent"
+        bgColorStyle="bg-black"
+        colorStyle="text-white"
+        dimensionStyle="px-3 py-1 w-max"
+        text="-"
         onClick={decrementCounter}
         disabled={counter === 1}
-      >-</button>
-      <p className='px-2 py-0 border-y-2 border-black font-bold bg-white'>{counter}</p>
-      <button
-        className='px-2 py-0 border-2 border-black font-bold bg-black text-white'
+      />
+      <div className='bg-white w-8 flex justify-center items-center border-2 border-s-0 border-e-0 border-black'>
+        <p className='font-bold'>{counter}</p>
+      </div>
+      <Button
+        borderStyle="border-2 border-transparent"
+        bgColorStyle="bg-black"
+        colorStyle="text-white"
+        dimensionStyle="px-3 py-1 w-max"
+        text="+"
         onClick={incrementCounter}
         disabled={counter === product.stock}
-      >+</button>
+      />
     </div>
   )
 };

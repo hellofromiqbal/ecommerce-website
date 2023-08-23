@@ -9,12 +9,14 @@ const Button = (props) => {
     fontStyle = 'font-semibold',
     dimensionStyle = 'p-3 w-max',
     text,
-    onClick = () => {}
+    onClick = () => {},
+    disabled=false
   } = props;
   return (
     <button
       className={`${dimensionStyle} ${borderStyle} ${bgColorStyle} ${colorStyle} ${textStyle} ${fontStyle} transition delay-75`}
       onClick={onClick}
+      disabled={disabled}
     >
       {text}
     </button>
