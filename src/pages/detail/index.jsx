@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { decrementStock, selectAllProducts } from '../../redux/products/productsSlice';
-import { addToCart } from '../../redux/cart/cartSlice';
+import { addToCart, decrementStock, selectAllProducts } from '../../redux/products/productsSlice';
 import AmountCounter from '../../components/fragments/amountCounter';
 
 const DetailPage = () => {
@@ -49,7 +48,7 @@ const DetailPage = () => {
           <div className='flex flex-col md:flex-row gap-4'>
             <button
               className='basis-1/2 p-3 border-2 border-black hover:border-transparent bg-transparent hover:bg-black hover:text-white text-lg font-medium transition delay-75'
-              onClick={() => dispatch(addToCart(product, counter))}
+              onClick={() => dispatch(addToCart(product.id, counter))}
               >ADD TO CHART</button>
             <button
               className='basis-1/2 p-3 border-2 border-transparent hover:border-red-700 bg-red-700 hover:bg-transparent text-white hover:text-red-700 text-lg font-medium transition delay-75'

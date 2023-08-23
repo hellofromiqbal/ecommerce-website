@@ -1,23 +1,27 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { selectAllCart } from '../../redux/cart/cartSlice';
 import ProductList from '../../components/fragments/productList';
 import ProductCard from '../../components/elements/productCard';
+import { selectAllProducts } from '../../redux/products/productsSlice';
 
 const MyCartPage = () => {
-  const myCart = useSelector(selectAllCart);
+  const allProducts = useSelector(selectAllProducts);
   return (
     <section className='min-h-screen'>
       <ProductList>
-        {myCart.map((product) => (
-          <ProductCard
-            key={product.id}
-            product={product}
-          />
-        ))}
+        {allProducts.map((product) => {
+          if (product.amountOnCart !== 0) {
+            return (
+              <ProductCard
+                key={product.id}
+                product={product}
+              />
+            );
+          }
+        })}
       </ProductList>
     </section>
-  )
+  );
 };
 
 export default MyCartPage;
