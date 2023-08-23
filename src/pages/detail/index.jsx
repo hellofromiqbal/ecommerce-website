@@ -33,8 +33,8 @@ const DetailPage = () => {
   };
 
   return (
-    <section className='flex flex-col gap-4'>
-      <h1 className='text-xl md:text-3xl font-semibold text-center'>{product.name}</h1>
+    <section className='flex flex-col gap-4 md:relative'>
+      <h1 className='text-xl md:text-3xl font-bold text-center md:absolute left-0 right-0 m-auto'>{product.name}</h1>
       <div className='md:h-[35rem] flex flex-col md:flex-row gap-4'>
         <div className='basis-1/2 flex flex-col justify-center items-center'>
           <div className='basis-1/2 flex'>
