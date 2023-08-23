@@ -34,7 +34,8 @@ const DetailPage = () => {
         </div>
         <div className='basis-1/2 bg-gray-200 flex flex-col justify-center p-4 md:p-10 gap-10'>
           <p className='font-medium'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio sequi dolores iusto expedita, pariatur quibusdam molestiae inventore ad voluptatem veritatis?</p>
-          <div className='flex flex-col md:flex-row gap-4 justify-between items-center scale-110 md:scale-100'>
+          <p className='text-lg font-semibold'>Stock: {product.stock}</p>
+          <div className='flex flex-col md:flex-row gap-4 justify-between items-center'>
             <h2 className='text-lg md:text-2xl font-semibold text-center'>Quantity</h2>
             <AmountCounter
               product={product}
@@ -44,7 +45,6 @@ const DetailPage = () => {
             />
             <h2 className='text-lg md:text-2xl font-semibold text-center'>${product.price * counter}</h2>
           </div>
-          <h2 className='text-lg font-semibold'>Stock: {product.stock}</h2>
           <div className='flex flex-col md:flex-row gap-4'>
             <button
               className='basis-1/2 p-3 border-2 border-black hover:border-transparent bg-transparent hover:bg-black hover:text-white text-lg font-medium transition delay-75'

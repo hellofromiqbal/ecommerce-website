@@ -54,7 +54,6 @@ const ProductCard = (props) => {
           </div>
           <div className='p-2 flex flex-col gap-2'>
             <button className='bg-red-700 text-white w-full p-2 text-md md:text-base font-medium'>Buy Now</button>
-            {/* <button className='bg-black text-white w-full p-2 text-md md:text-base font-medium'>Remove From Cart</button> */}
           </div>
         </>
       }
