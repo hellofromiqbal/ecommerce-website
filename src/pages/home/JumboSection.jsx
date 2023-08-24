@@ -3,10 +3,10 @@ import JumboCard from '../../components/elements/jumboCard';
 
 const JumboSection = () => {
   const jumboCards = [
-    { title: 'Furniture', url: '/categories/furnitures', imgUrl: '/img/jumbotron/jumbo-furniture.jpg' },
-    { title: 'Beauty', url: '/categories/beauty', imgUrl: '/img/jumbotron/jumbo-beauty.jpg' },
-    { title: 'Apparel', url: '/categories/apparel', imgUrl: '/img/jumbotron/jumbo-apparel.jpg' },
-    { title: 'Electronics', url: '/categories/electronics', imgUrl: '/img/jumbotron/jumbo-electronics.jpg' }
+    { title: 'Furniture', url: '/categories/furnitures', imgUrl: '/img/jumbotron/jumbo-furniture.webp' },
+    { title: 'Beauty', url: '/categories/beauty', imgUrl: '/img/jumbotron/jumbo-beauty.webp' },
+    { title: 'Apparel', url: '/categories/apparel', imgUrl: '/img/jumbotron/jumbo-apparel.webp' },
+    { title: 'Electronics', url: '/categories/electronics', imgUrl: '/img/jumbotron/jumbo-electronics.webp' }
   ];
 
   return (
