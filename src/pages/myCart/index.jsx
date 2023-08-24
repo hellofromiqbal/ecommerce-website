@@ -3,12 +3,19 @@ import { useSelector } from 'react-redux';
 import ProductList from '../../components/fragments/productList';
 import ProductCard from '../../components/elements/productCard';
 import { selectAllProducts } from '../../redux/products/productsSlice';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const MyCartPage = () => {
+  const notify = (message) => toast(message);
+
   const allProducts = useSelector(selectAllProducts);
+
   const productsOnCart = allProducts.filter((product) => product.amountOnCart > 0);
+
   return (
     <section className='min-h-screen'>
+      <ToastContainer/>
       {productsOnCart.length < 1 ?
         <div className='flex flex-col md:w-2/3 lg:w-full justify-center gap-4 text-start m-auto'>
           <h1 className='text-2xl md:text-5xl font-semibold'>No products on cart yet!</h1>
@@ -20,6 +27,7 @@ const MyCartPage = () => {
             <ProductCard
               key={product.id}
               product={product}
+              callback={notify}
             />
           ))}
         </ProductList>

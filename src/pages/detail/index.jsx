@@ -4,11 +4,15 @@ import { useParams } from 'react-router-dom';
 import { addToCart, decrementStock, selectAllProducts } from '../../redux/products/productsSlice';
 import AmountCounter from '../../components/fragments/amountCounter';
 import Button from '../../components/elements/button';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const DetailPage = () => {
   const { id } = useParams();
 
   const dispatch = useDispatch();
+
+  const notify = (message) => toast(message);
 
   const allProducts = useSelector(selectAllProducts);
 
@@ -18,6 +22,7 @@ const DetailPage = () => {
 
   const handleAddToCart = () => {
     dispatch(addToCart(product.id, counter));
+    notify(`${product.name} has been added to cart!`);
   };
 
   const handleDecrementStock = () => {
@@ -34,6 +39,7 @@ const DetailPage = () => {
 
   return (
     <section className='flex flex-col gap-4 md:relative'>
+      <ToastContainer/>
       <h1 className='text-xl md:text-3xl font-bold text-center md:absolute left-0 right-0 m-auto'>{product.name}</h1>
       <div className='md:h-[35rem] flex flex-col md:flex-row gap-4'>
         <div className='basis-1/2 flex flex-col justify-center items-center'>
