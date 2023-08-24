@@ -17,7 +17,7 @@ const CategoriesPage = () => {
     const isCategoryExist = existingCategories.find((existingCategory) => existingCategory === category);
 
     if (!isCategoryExist) {
-      return window.location.href = '/';
+      window.location.href = '/';
     } else {
       setCategoryNavTitle(category[0].toUpperCase() + category.slice(1));
       setProductSection(<ProductSection category={category}/>);

@@ -16,7 +16,7 @@ const BannerSection = (props) => {
           onClick={() => {}}
         />
       </div>
-      <div className='basis-0 md:basis-1/2 bg-[url("/img/ctaSection/ctaImg1.jpg")] bg-cover bg-center'></div>
+      <div className='basis-0 md:basis-1/2 bg-[url("/img/ctaSection/ctaImg1.webp")] bg-cover bg-center'></div>
     </section>
   )
 };
