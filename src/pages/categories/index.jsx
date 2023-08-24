@@ -1,10 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { Navigate } from 'react-router-dom';
-import ProductList from '../../components/fragments/productList';
 import ProductSection from '../home/ProductSection';
-import { useSelector } from 'react-redux';
-import { selectAllProducts } from '../../redux/products/productsSlice';
 
 const CategoriesPage = () => {
   const { category } = useParams();
