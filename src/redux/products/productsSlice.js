@@ -100,6 +100,8 @@ const productsSlice = createSlice({
 
 export const selectAllProducts = (state) => state.products;
 
+export const selectExistingCategories = (state) => ['all', ...new Set(state.products.map((product) => product.category))];
+
 export const { decrementStock, addToCart, decrementAmountOnCart, incrementAmountOnCart, removeProductFromCart } = productsSlice.actions;
 
 export default productsSlice.reducer;
