@@ -67,9 +67,9 @@ const ProductCard = (props) => {
           </div>
           <div className='p-2 pt-0 flex flex-col gap-2'>
             <Button
-              borderStyle="border-2 border-transparent hover:border-red-700"
-              bgColorStyle="bg-red-700 hover:bg-transparent"
-              colorStyle="text-white hover:text-red-700"
+              borderStyle="border-2 border-transparent hover:border-black"
+              bgColorStyle="bg-red-700 hover:bg-black"
+              colorStyle="text-white hover:text-white"
               dimensionStyle="p-2 w-full"
               text="BUY NOW"
               onClick={() => {}}
