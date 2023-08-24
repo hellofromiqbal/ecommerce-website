@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { createSelector } from "reselect";
 
 const initialState = [
   { id: '1', name: 'White Chair', price: 90, stock: 8, amountOnCart: 0, category: 'furnitures', imgUrl: '/img/furnitures/white-chair.webp', texture: 'Wood', weight: '8kg', size: '60cm x 40cm' },
@@ -99,6 +100,8 @@ const productsSlice = createSlice({
 });
 
 export const selectAllProducts = (state) => state.products;
+
+export const selectExistingCategories = createSelector([selectAllProducts], (products) => ['all', ...new Set(products.map((product) => product.category))]);
 
 export const { decrementStock, addToCart, decrementAmountOnCart, incrementAmountOnCart, removeProductFromCart } = productsSlice.actions;
 
