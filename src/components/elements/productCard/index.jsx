@@ -7,7 +7,7 @@ import Button from '../button';
 import { RxCross1 as IconRemove } from 'react-icons/rx';
 
 const ProductCard = (props) => {
-  const { product } = props;
+  const { product, callback = () => {} } = props;
 
   const dispatch = useDispatch();
 
@@ -25,6 +25,7 @@ const ProductCard = (props) => {
 
   const removeProduct = () => {
     dispatch(removeProductFromCart(product.id));
+    callback(`${product.name} has been removed from cart!`);
   };
 
   return (
