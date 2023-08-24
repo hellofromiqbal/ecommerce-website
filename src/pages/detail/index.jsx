@@ -12,7 +12,16 @@ const DetailPage = () => {
 
   const dispatch = useDispatch();
 
-  const notify = (message) => toast(message);
+  const notify = (message) => toast.success(message, {
+    position: "top-center",
+    autoClose: 500,
+    hideProgressBar: true,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "dark",
+    });
 
   const allProducts = useSelector(selectAllProducts);
 
@@ -39,7 +48,18 @@ const DetailPage = () => {
 
   return (
     <section className='flex flex-col gap-4 md:relative'>
-      <ToastContainer/>
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar
+        newestOnTop
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
       <h1 className='text-xl md:text-3xl font-bold text-center md:absolute left-0 right-0 m-auto'>{product.name}</h1>
       <div className='md:h-[35rem] flex flex-col md:flex-row gap-4'>
         <div className='basis-1/2 flex flex-col justify-center items-center'>

@@ -7,7 +7,16 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const MyCartPage = () => {
-  const notify = (message) => toast(message);
+  const notify = (message) => toast.success(message, {
+    position: "top-center",
+    autoClose: 500,
+    hideProgressBar: true,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "dark",
+    });
 
   const allProducts = useSelector(selectAllProducts);
 
@@ -15,7 +24,18 @@ const MyCartPage = () => {
 
   return (
     <section className='min-h-screen'>
-      <ToastContainer/>
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar
+        newestOnTop
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
       {productsOnCart.length < 1 ?
         <div className='flex flex-col md:w-2/3 lg:w-full justify-center gap-4 text-start m-auto'>
           <h1 className='text-2xl md:text-5xl font-semibold'>No products on cart yet!</h1>
