@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import ProductList from '../../components/fragments/productList';
 import ProductSection from '../home/ProductSection';
 import { useSelector } from 'react-redux';
@@ -8,12 +9,21 @@ import { selectAllProducts } from '../../redux/products/productsSlice';
 const CategoriesPage = () => {
   const { category } = useParams();
 
+  const existingCategories = ['all', 'furnitures', 'electronics', 'lamps', 'apparel', 'beauty'];
+  
   const [categoryNavTitle, setCategoryNavTitle] = useState('');
+  
   const [productSection, setProductSection] = useState();
-
+  
   useEffect(() => {
-    setCategoryNavTitle(category[0].toUpperCase() + category.slice(1));
-    setProductSection(<ProductSection category={category}/>);
+    const isCategoryExist = existingCategories.find((existingCategory) => existingCategory === category);
+
+    if (!isCategoryExist) {
+      return window.location.href = '/';
+    } else {
+      setCategoryNavTitle(category[0].toUpperCase() + category.slice(1));
+      setProductSection(<ProductSection category={category}/>);
+    }
   }, [category]);
   
   return (
