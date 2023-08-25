@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import ProductSection from '../home/ProductSection';
 import { useSelector } from 'react-redux';
 import { selectExistingCategories } from '../../redux/products/productsSlice';
 
 const CategoriesPage = () => {
   const { category } = useParams();
+
+  const navigate = useNavigate();
 
   const existingCategories = useSelector(selectExistingCategories);
 
@@ -17,7 +19,7 @@ const CategoriesPage = () => {
     const isCategoryExist = existingCategories.find((existingCategory) => existingCategory === category);
 
     if (!isCategoryExist) {
-      window.location.href = '/';
+      navigate('/');
     } else {
       setCategoryNavTitle(category[0].toUpperCase() + category.slice(1));
       setProductSection(<ProductSection category={category}/>);
