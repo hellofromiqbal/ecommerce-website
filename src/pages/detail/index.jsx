@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { addToCart, decrementStock, selectAllProducts } from '../../redux/products/productsSlice';
 import AmountCounter from '../../components/fragments/amountCounter';
 import Button from '../../components/elements/button';
@@ -9,6 +9,8 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const DetailPage = () => {
   const { id } = useParams();
+
+  const navigate = useNavigate();
 
   const dispatch = useDispatch();
 
@@ -92,7 +94,7 @@ const DetailPage = () => {
               colorStyle="text-white hover:text-red-700"
                 dimensionStyle="p-3 w-full"
               text="BUY NOW"
-              onClick={handleDecrementStock}
+              onClick={() => navigate(`/payment/${product.id}`)}
             />
           </div>
         </div>
