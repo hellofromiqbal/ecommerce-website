@@ -1,7 +1,16 @@
 import React from 'react'
 import Button from '../../components/elements/button';
+import { useParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { selectAllProducts } from '../../redux/products/productsSlice';
 
 const PaymentPage = () => {
+  const { id } = useParams();
+  
+  const allProducts = useSelector(selectAllProducts);
+
+  const product = allProducts.find((product) => product.id === id);
+
   return (
     <>
       <section className='flex flex-col gap-4'>
@@ -50,35 +59,35 @@ const PaymentPage = () => {
               <p className='font-medium text-md md:text-lg'>Payment Details</p>
               <div className='flex justify-between'>
                 <p className='text-sm md:text-base text-black text-opacity-80'>Name</p>
-                <p className='text-sm md:text-base'>Brown Drawer</p>
+                <p className='text-sm md:text-base'>{product.name}</p>
               </div>
               <div className='flex justify-between'>
                 <p className='text-sm md:text-base text-black text-opacity-80'>Texture</p>
-                <p className='text-sm md:text-base'>Wood</p>
+                <p className='text-sm md:text-base'>{product.texture}</p>
               </div>
               <div className='flex justify-between'>
                 <p className='text-sm md:text-base text-black text-opacity-80'>Weight</p>
-                <p className='text-sm md:text-base'>18kg</p>
+                <p className='text-sm md:text-base'>{product.weight}</p>
               </div>
               <div className='flex justify-between'>
                 <p className='text-sm md:text-base text-black text-opacity-80'>Size</p>
-                <p className='text-sm md:text-base'>50cm x 50cm</p>
+                <p className='text-sm md:text-base'>{product.size}</p>
               </div>
               <div className='flex justify-between'>
                 <p className='text-sm md:text-base text-black text-opacity-80'>Price/unit</p>
-                <p className='text-sm md:text-base'>$80</p>
+                <p className='text-sm md:text-base'>${product.price}</p>
               </div>
               <div className='flex justify-between'>
                 <p className='text-sm md:text-base text-black text-opacity-80'>Amount on cart</p>
-                <p className='text-sm md:text-base'>2</p>
+                <p className='text-sm md:text-base'>{product.amountOnCart}</p>
               </div>
             </div>
             <div className='flex flex-col'>
               <p className='font-medium text-md md:text-lg'>Product Total Price</p>
               <p className='text-sm md:text-base text-black text-opacity-80'>Amount on cart x Price/unit</p>
               <div className='flex justify-between'>
-                <p className='text-sm md:text-base text-black text-opacity-80'>2 x $80</p>
-                <p className='text-sm md:text-base font-medium'>$560</p>
+                <p className='text-sm md:text-base text-black text-opacity-80'>{product.amountOnCart} x ${product.price}</p>
+                <p className='text-sm md:text-base font-medium'>${product.amountOnCart * product.price}</p>
               </div>
             </div>
             <div className='flex flex-col'>
@@ -99,7 +108,7 @@ const PaymentPage = () => {
             </div>
             <div className='flex justify-between items-center'>
               <p className='font-medium text-md md:text-lg'>Total Payment</p>
-              <p className='font-bold text-xl'>$570</p>
+              <p className='font-bold text-xl'>${(product.amountOnCart * product.price) + 10}</p>
             </div>
           </div>
           <div className='flex justify-end lg:justify-normal'>

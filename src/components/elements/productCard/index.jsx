@@ -72,7 +72,7 @@ const ProductCard = (props) => {
               bgColorStyle="bg-red-700 hover:bg-black"
               colorStyle="text-white hover:text-white"
               dimensionStyle="p-2 w-full"
-              text="BUY NOW"
+              text="MAKE ORDER"
               onClick={() => {}}
             />
           </div>

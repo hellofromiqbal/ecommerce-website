@@ -93,7 +93,7 @@ const DetailPage = () => {
               bgColorStyle="bg-red-700 hover:bg-transparent"
               colorStyle="text-white hover:text-red-700"
                 dimensionStyle="p-3 w-full"
-              text="BUY NOW"
+              text="MAKE ORDER"
               onClick={() => navigate(`/payment/${product.id}`)}
             />
           </div>
