@@ -14,7 +14,18 @@ const DetailPage = () => {
 
   const dispatch = useDispatch();
 
-  const notify = (message) => toast.success(message, {
+  const notifySuccess = (message) => toast.success(message, {
+    position: "top-center",
+    autoClose: 500,
+    hideProgressBar: true,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "dark",
+  });
+
+  const notifyFailed = (message) => toast.error(message, {
     position: "top-center",
     autoClose: 500,
     hideProgressBar: true,
@@ -33,16 +44,16 @@ const DetailPage = () => {
 
   const handleAddToCart = () => {
     if (product.stock < 1) {
-      notify(`${product.name} has 0 stock. Cannot add to cart!`);
+      notifyFailed(`${product.name} has 0 stock. Cannot add to cart!`);
     } else {
       dispatch(addToCart(product.id, counter));
-      notify(`${product.name} has been added to cart!`);
+      notifySuccess(`${product.name} has been added to cart!`);
     }
   };
 
   const handleMakeOrder = () => {
     if (product.stock < 1) {
-      notify(`${product.name} has 0 stock. Cannot make order!`);
+      notifyFailed(`${product.name} has 0 stock. Cannot make order!`);
     }
     if (product.amountOnCart < 1) {
       dispatch(addToCart(product.id, counter));
