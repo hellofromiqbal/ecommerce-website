@@ -1,14 +1,16 @@
 import React from 'react'
 import Button from '../../components/elements/button';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { decrementStock, selectAllProducts } from '../../redux/products/productsSlice';
+import { decrementStock, removeProductFromCart, selectAllProducts } from '../../redux/products/productsSlice';
 import { ToastContainer, toast } from 'react-toastify';
 
 const PaymentPage = () => {
   const { id } = useParams();
 
   const dispatch = useDispatch();
+
+  const navigate = useNavigate();
   
   const allProducts = useSelector(selectAllProducts);
 
@@ -17,7 +19,11 @@ const PaymentPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     notify(`You just bought ${product.amountOnCart} ${product.name}! We'll deliver your item(s) today.`);
+    dispatch(removeProductFromCart(product.id));
     dispatch(decrementStock(product.id, product.amountOnCart));
+    setTimeout(() => {
+      navigate('/');
+    }, 1000);
   };
 
   const notify = (message) => toast.success(message, {
