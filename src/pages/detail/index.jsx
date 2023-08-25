@@ -23,7 +23,7 @@ const DetailPage = () => {
     draggable: true,
     progress: undefined,
     theme: "dark",
-    });
+  });
 
   const allProducts = useSelector(selectAllProducts);
 

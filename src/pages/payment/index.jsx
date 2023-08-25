@@ -3,6 +3,7 @@ import Button from '../../components/elements/button';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { decrementStock, selectAllProducts } from '../../redux/products/productsSlice';
+import { ToastContainer, toast } from 'react-toastify';
 
 const PaymentPage = () => {
   const { id } = useParams();
@@ -15,12 +16,36 @@ const PaymentPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    notify(`You just bought ${product.amountOnCart} ${product.name}! We'll deliver your item(s) today.`);
     dispatch(decrementStock(product.id, product.amountOnCart));
   };
+
+  const notify = (message) => toast.success(message, {
+    position: "top-center",
+    autoClose: 500,
+    hideProgressBar: true,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "dark",
+  });
 
   return (
     <>
       <section className='flex flex-col gap-4'>
+        <ToastContainer
+          position="top-center"
+          autoClose={5000}
+          hideProgressBar
+          newestOnTop
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="dark"
+        />
         <h1 className='text-xl md:text-3xl font-bold'>Payment Page</h1>
         <form action="" className='grid lg:grid-cols-2 gap-4' onSubmit={handleSubmit}>
           <div className='flex flex-col'>
