@@ -32,8 +32,12 @@ const DetailPage = () => {
   const [counter, setCounter] = useState(1);
 
   const handleAddToCart = () => {
-    dispatch(addToCart(product.id, counter));
-    notify(`${product.name} has been added to cart!`);
+    if (product.stock < 1) {
+      notify(`${product.name} has 0 stock. Cannot add to cart!`);
+    } else {
+      dispatch(addToCart(product.id, counter));
+      notify(`${product.name} has been added to cart!`);
+    }
   };
 
   const handleMakeOrder = () => {
