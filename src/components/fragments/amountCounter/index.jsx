@@ -25,7 +25,7 @@ const AmountCounter = (props) => {
         dimensionStyle="px-2 py-2 w-max"
         text={IconPlus()}
         onClick={incrementCounter}
-        disabled={counter === product.stock}
+        disabled={counter === product.stock || product.stock < 1}
       />
     </div>
   )
