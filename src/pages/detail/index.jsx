@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
-import { addToCart, decrementStock, selectAllProducts } from '../../redux/products/productsSlice';
+import { addToCart, decrementStock, incrementAmountOnCart, selectAllProducts } from '../../redux/products/productsSlice';
 import AmountCounter from '../../components/fragments/amountCounter';
 import Button from '../../components/elements/button';
 import { ToastContainer, toast } from 'react-toastify';
@@ -36,8 +36,9 @@ const DetailPage = () => {
     notify(`${product.name} has been added to cart!`);
   };
 
-  const handleDecrementStock = () => {
-    dispatch(decrementStock(product.id, counter));
+  const handleMakeOrder = () => {
+    dispatch(addToCart(product.id, counter));
+    navigate(`/payment/${product.id}`)
   };
 
   const decrementCounter = () => {
@@ -94,7 +95,7 @@ const DetailPage = () => {
               colorStyle="text-white hover:text-red-700"
                 dimensionStyle="p-3 w-full"
               text="MAKE ORDER"
-              onClick={() => navigate(`/payment/${product.id}`)}
+              onClick={handleMakeOrder}
             />
           </div>
         </div>

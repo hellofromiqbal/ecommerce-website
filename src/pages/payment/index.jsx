@@ -1,21 +1,28 @@
 import React from 'react'
 import Button from '../../components/elements/button';
 import { useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { selectAllProducts } from '../../redux/products/productsSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { decrementStock, selectAllProducts } from '../../redux/products/productsSlice';
 
 const PaymentPage = () => {
   const { id } = useParams();
+
+  const dispatch = useDispatch();
   
   const allProducts = useSelector(selectAllProducts);
 
   const product = allProducts.find((product) => product.id === id);
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(decrementStock(product.id, product.amountOnCart));
+  };
+
   return (
     <>
       <section className='flex flex-col gap-4'>
         <h1 className='text-xl md:text-3xl font-bold'>Payment Page</h1>
-        <form action="" className='grid lg:grid-cols-2 gap-4'>
+        <form action="" className='grid lg:grid-cols-2 gap-4' onSubmit={handleSubmit}>
           <div className='flex flex-col'>
             <h2 className='font-medium text-md md:text-lg'>Payment Form</h2>
             <div className='flex flex-col gap-4'>
