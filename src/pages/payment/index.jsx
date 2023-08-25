@@ -1,11 +1,12 @@
 import React from 'react'
+import Button from '../../components/elements/button';
 
 const PaymentPage = () => {
   return (
     <>
-      <section>
+      <section className='flex flex-col gap-4'>
         <h1 className='text-xl md:text-3xl font-bold'>Payment Page</h1>
-        <form action="" className='grid md:grid-cols-2 gap-4'>
+        <form action="" className='grid lg:grid-cols-2 gap-4'>
           <div className='flex flex-col'>
             <h2 className='font-medium text-md md:text-lg'>Payment Form</h2>
             <div className='flex flex-col gap-4'>
@@ -23,7 +24,7 @@ const PaymentPage = () => {
               </div>
               <div className='flex flex-col'>
                 <label htmlFor="address" className="text-sm md:text-base">Address:</label>
-                <input id='address' type="text" className='border-2 border-gray-200 focus:border-black px-2 py-1'/>
+                <textarea name="address" id="address" className='border-2 border-gray-200 focus:border-black px-2 py-1 resize-none'></textarea>
               </div>
               <div className='flex flex-col'>
                 <label htmlFor="deliveryMethod" className="text-sm md:text-base">Delivery Method</label>
@@ -100,6 +101,14 @@ const PaymentPage = () => {
               <p className='font-medium text-md md:text-lg'>Total Payment</p>
               <p className='font-bold text-xl'>$570</p>
             </div>
+          </div>
+          <div className='flex justify-end lg:justify-normal'>
+            <Button
+              borderStyle="border-2 border-transparent hover:border-red-700"
+              bgColorStyle="bg-red-700 hover:bg-transparent"
+              colorStyle="text-white hover:text-red-700"
+              text="MAKE ORDER"
+            />
           </div>
         </form>
       </section>
