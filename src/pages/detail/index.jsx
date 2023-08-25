@@ -41,12 +41,14 @@ const DetailPage = () => {
   };
 
   const handleMakeOrder = () => {
+    if (product.stock < 1) {
+      notify(`${product.name} has 0 stock. Cannot make order!`);
+    }
     if (product.amountOnCart < 1) {
       dispatch(addToCart(product.id, counter));
     } else {
       navigate(`/payment/${product.id}`);
     }
-    navigate(`/payment/${product.id}`);
   };
 
   const decrementCounter = () => {
