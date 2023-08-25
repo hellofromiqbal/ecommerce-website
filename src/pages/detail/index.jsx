@@ -37,8 +37,12 @@ const DetailPage = () => {
   };
 
   const handleMakeOrder = () => {
-    dispatch(addToCart(product.id, counter));
-    navigate(`/payment/${product.id}`)
+    if (product.amountOnCart < 1) {
+      dispatch(addToCart(product.id, counter));
+    } else {
+      navigate(`/payment/${product.id}`);
+    }
+    navigate(`/payment/${product.id}`);
   };
 
   const decrementCounter = () => {
