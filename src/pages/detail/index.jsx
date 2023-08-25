@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
-import { addToCart, decrementStock, incrementAmountOnCart, selectAllProducts } from '../../redux/products/productsSlice';
+import { addToCart, selectAllProducts } from '../../redux/products/productsSlice';
 import AmountCounter from '../../components/fragments/amountCounter';
 import Button from '../../components/elements/button';
 import { ToastContainer, toast } from 'react-toastify';
