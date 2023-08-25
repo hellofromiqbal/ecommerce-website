@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import AmountCounter from '../../fragments/amountCounter';
 import { useDispatch } from 'react-redux';
 import { decrementAmountOnCart, incrementAmountOnCart, removeProductFromCart } from '../../../redux/products/productsSlice';
@@ -12,6 +12,8 @@ const ProductCard = (props) => {
   const dispatch = useDispatch();
 
   const [counter, setCounter] = useState(product.amountOnCart);
+
+  const navigate = useNavigate();
 
   const decrementCounter = () => {
     setCounter((prev) => prev - 1);
@@ -73,7 +75,7 @@ const ProductCard = (props) => {
               colorStyle="text-white hover:text-white"
               dimensionStyle="p-2 w-full"
               text="MAKE ORDER"
-              onClick={() => {}}
+              onClick={() => navigate(`/payment/${product.id}`)}
             />
           </div>
         </>
