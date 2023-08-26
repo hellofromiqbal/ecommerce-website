@@ -11,7 +11,7 @@ const ProductCard = (props) => {
 
   const dispatch = useDispatch();
 
-  const [counter, setCounter] = useState(product.amountOnCart);
+  const [counter, setCounter] = useState(product.amountOnCart < 1 ? 1 : product.amountOnCart);
 
   const navigate = useNavigate();
 

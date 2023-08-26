@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
-import { addToCart, selectAllProducts } from '../../redux/products/productsSlice';
+import { addToCart, decrementAmountOnCart, incrementAmountOnCart, selectAllProducts } from '../../redux/products/productsSlice';
 import AmountCounter from '../../components/fragments/amountCounter';
 import Button from '../../components/elements/button';
 import { ToastContainer, toast } from 'react-toastify';
@@ -40,7 +40,7 @@ const DetailPage = () => {
 
   const product = allProducts.find((product) => product.id === id);
 
-  const [counter, setCounter] = useState(1);
+  const [counter, setCounter] = useState(product.amountOnCart < 1 ? 1 : product.amountOnCart);
 
   const handleAddToCart = () => {
     if (product.stock < 1) {
@@ -66,10 +66,12 @@ const DetailPage = () => {
 
   const decrementCounter = () => {
     setCounter((prev) => prev - 1);
+    dispatch(decrementAmountOnCart(product.id, counter));
   };
 
   const incrementCounter = () => {
     setCounter((prev) => prev + 1);
+    dispatch(incrementAmountOnCart(product.id, counter));
   };
 
   return (
