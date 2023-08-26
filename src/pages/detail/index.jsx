@@ -71,7 +71,9 @@ const DetailPage = () => {
 
   const incrementCounter = () => {
     setCounter((prev) => prev + 1);
-    dispatch(incrementAmountOnCart(product.id, counter));
+    if (product.amountOnCart > 0) {
+      dispatch(incrementAmountOnCart(product.id, counter));
+    }
   };
 
   return (
