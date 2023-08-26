@@ -54,11 +54,13 @@ const DetailPage = () => {
   const handleMakeOrder = () => {
     if (product.stock < 1) {
       notifyFailed(`${product.name} has 0 stock. Cannot make order!`);
-    }
-    if (product.amountOnCart < 1) {
-      dispatch(addToCart(product.id, counter));
     } else {
-      navigate(`/payment/${product.id}`);
+      if (product.amountOnCart < 1) {
+        dispatch(addToCart(product.id, counter));
+        navigate(`/payment/${product.id}`);
+      } else {
+        navigate(`/payment/${product.id}`);
+      }
     }
   };
 
@@ -109,6 +111,7 @@ const DetailPage = () => {
               dimensionStyle="p-3 w-full"
               text="ADD TO CART"
               onClick={handleAddToCart}
+              disabled={product.stock < 1}
             />
             <Button
               borderStyle="border-2 border-transparent hover:border-red-700"
@@ -117,6 +120,7 @@ const DetailPage = () => {
                 dimensionStyle="p-3 w-full"
               text="MAKE ORDER"
               onClick={handleMakeOrder}
+              disabled={product.stock < 1}
             />
           </div>
         </div>
