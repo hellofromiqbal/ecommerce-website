@@ -16,7 +16,7 @@ const DetailPage = () => {
 
   const notifySuccess = (message) => toast.success(message, {
     position: "top-center",
-    autoClose: 500,
+    autoClose: 1000,
     hideProgressBar: true,
     closeOnClick: true,
     pauseOnHover: true,
@@ -27,7 +27,7 @@ const DetailPage = () => {
 
   const notifyFailed = (message) => toast.error(message, {
     position: "top-center",
-    autoClose: 500,
+    autoClose: 1000,
     hideProgressBar: true,
     closeOnClick: true,
     pauseOnHover: true,
@@ -47,7 +47,7 @@ const DetailPage = () => {
       notifyFailed(`${product.name} has 0 stock. Cannot add to cart!`);
     } else {
       dispatch(addToCart(product.id, counter));
-      notifySuccess(`${product.name} has been added to cart!`);
+      notifySuccess(`${counter} ${product.name}(s) has been added to cart!`);
     }
   };
 
