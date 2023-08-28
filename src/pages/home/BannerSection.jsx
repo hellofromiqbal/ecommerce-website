@@ -1,8 +1,12 @@
 import React from 'react';
 import Button from '../../components/elements/button';
+import { useNavigate } from 'react-router-dom';
 
 const BannerSection = (props) => {
   const { reversed } = props;
+
+  const navigate = useNavigate();
+
   return (
     <section className={`flex ${reversed? 'flex-row-reverse' : 'flex-row'} bg-gray-200 my-10 h-96`}>
       <div className='basis-full md:basis-1/2 flex flex-col gap-4 justify-center px-10'>
@@ -13,7 +17,7 @@ const BannerSection = (props) => {
           bgColorStyle="bg-black hover:bg-transparent"
           colorStyle="text-white hover:text-black"
           text="SHOP NOW"
-          onClick={() => {}}
+          onClick={() => navigate('/categories/all')}
         />
       </div>
       <div className='basis-0 md:basis-1/2 bg-[url("/img/ctaSection/ctaImg1.webp")] bg-cover bg-center'></div>
