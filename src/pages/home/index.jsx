@@ -2,10 +2,11 @@ import React from 'react';
 import JumboSection from './JumboSection';
 import ProductSection from './ProductSection';
 import BannerSection from './BannerSection';
+import MainLayout from '../../components/layouts/MainLayout';
 
 const HomePage = () => {
   return (
-    <>
+    <MainLayout>
       <JumboSection/>
       <ProductSection
         title="New Products"
@@ -17,7 +18,7 @@ const HomePage = () => {
         category="electronics"
       />
       <BannerSection reversed={true}/>
-    </>
+    </MainLayout>
   )
 };
 

@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { selectAllProducts } from '../../redux/products/productsSlice';
 import ProductDetailSection from './productDetailSection';
+import MainLayout from '../../components/layouts/MainLayout';
 
 const DetailPage = () => {
   const { id } = useParams();
@@ -12,7 +13,7 @@ const DetailPage = () => {
   const product = allProducts.find((product) => product.id === id);
 
   return (
-    <>
+    <MainLayout>
     {product ?
       <ProductDetailSection product={product}/>
       :
@@ -21,7 +22,7 @@ const DetailPage = () => {
         <p className='text-sm md:text-base text-black text-opacity-80'>We don't have the product you were looking for. Please check again!</p>
       </div>
     }
-    </>
+    </MainLayout>
   )
 };
 

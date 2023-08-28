@@ -3,6 +3,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import ProductSection from '../home/ProductSection';
 import { useSelector } from 'react-redux';
 import { selectExistingCategories } from '../../redux/products/productsSlice';
+import MainLayout from '../../components/layouts/MainLayout';
 
 const CategoriesPage = () => {
   const { category } = useParams();
@@ -27,7 +28,7 @@ const CategoriesPage = () => {
   }, [category]);
   
   return (
-    <>
+    <MainLayout>
       <section className='flex flex-col gap-4 items-center'>
         <h2 className='text-lg md:text-2xl font-semibold'>{categoryNavTitle}</h2>
         <ul className='flex gap-4 flex-wrap'>
@@ -37,7 +38,7 @@ const CategoriesPage = () => {
         </ul>
       </section>
       {productSection}
-    </>
+    </MainLayout>
   )
 };
 

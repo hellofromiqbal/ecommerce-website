@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { selectAllProducts } from '../../redux/products/productsSlice';
 import { ToastContainer, toast } from 'react-toastify';
 import PaymentInformation from './PaymentInformation';
+import MainLayout from '../../components/layouts/MainLayout';
 
 const PaymentPage = () => {
   const { id } = useParams();
@@ -13,7 +14,7 @@ const PaymentPage = () => {
   const product = allProducts.find((product) => product.id === id);
 
   return (
-    <>
+    <MainLayout>
       <ToastContainer
         position="top-center"
         autoClose={5000}
@@ -34,7 +35,7 @@ const PaymentPage = () => {
           <p className='text-sm md:text-base text-black text-opacity-80'>We don't have the product you were looking for. Please check again!</p>
         </div>
       }
-    </>
+    </MainLayout>
   )
 };
 
