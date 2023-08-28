@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { selectAllProducts } from '../../redux/products/productsSlice';
-import ProductDetailSection from './ProductDetailSection';
+import ProductDetailSection from './productDetailSection';
 
 const DetailPage = () => {
   const { id } = useParams();
