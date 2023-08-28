@@ -35,7 +35,7 @@ const PaymentInformation = (props) => {
 
   const notify = (message) => toast.success(message, {
     position: "top-center",
-    autoClose: 500,
+    autoClose: 1000,
     hideProgressBar: true,
     closeOnClick: true,
     pauseOnHover: true,
