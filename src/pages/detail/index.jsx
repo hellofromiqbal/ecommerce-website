@@ -13,7 +13,7 @@ const DetailPage = () => {
 
   return (
     <>
-    {product ?
+    {product !== undefined ?
       <ProductDetailSection product={product}/>
       :
       <div className='flex flex-col md:w-2/3 lg:w-full min-h-screen gap-4 text-start lg:m-auto'>
