@@ -4,8 +4,8 @@ import Home from './pages/Home'
 import Auth from './pages/Auth'
 import Checkout from './pages/Checkout'
 import Navbar from './components/Navbar'
-import AuthProvider from './context/AuthProvider'
 import { Slide, ToastContainer } from 'react-toastify'
+import AuthProvider from './context/AuthContext'
 
 function App() {
   return (

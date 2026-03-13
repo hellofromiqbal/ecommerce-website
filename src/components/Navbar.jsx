@@ -1,10 +1,9 @@
 import { Link } from "react-router-dom";
-import { AuthContext } from "../context/context";
-import { useContext } from "react";
 import { toast } from "react-toastify";
+import { useAuth } from "../context/AuthContext";
 
 export default function Navbar() {
-  const { user, logout } = useContext(AuthContext);
+  const { user, logout } = useAuth();
   function handleLogout() {
     const result = logout();
     if (result.success) {

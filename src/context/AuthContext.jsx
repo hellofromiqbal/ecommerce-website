@@ -1,5 +1,7 @@
-import { useState } from "react";
-import { AuthContext } from "./context";
+/* eslint-disable react-refresh/only-export-components */
+import { useState,  useContext, createContext } from "react";
+
+export const AuthContext = createContext(null);
 
 export default function AuthProvider({ children }) {
   const [user, setUser] = useState(() => {
@@ -35,4 +37,12 @@ export default function AuthProvider({ children }) {
     return { success: true, message: "Logged out successfully!" };
   }
   return <AuthContext.Provider value={{ signUp, login, logout, user }}>{children}</AuthContext.Provider>;
+}
+
+export function useAuth() {
+  const context = useContext(AuthContext);
+  if (!context){
+    throw new Error("useAuth must be used inside AuthProvider");
+  }
+  return context;
 }
