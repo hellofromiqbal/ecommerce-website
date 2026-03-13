@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useAuth } from "../context/AuthContext";
+import { useCart } from "../context/CartContext";
 
 export default function Navbar() {
   const { user, logout } = useAuth();
+  const { cartItems } = useCart();
   function handleLogout() {
     const result = logout();
     if (result.success) {
@@ -18,7 +20,7 @@ export default function Navbar() {
         <Link to="/" className="navbar-brand">ShopHub</Link>
         <div className="navbar-links">
           <Link to="/" className="navbar-link">Home</Link>
-          <Link to="/checkout" className="navbar-link">Cart</Link>
+          <Link to="/checkout" className="navbar-link">Cart {cartItems.length ? `(${cartItems.length})` : ""}</Link>
         </div>
         <div className="navbar-auth">
           <div className="navbar-auth-links">
